@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAYS AUDIO INDIA | Premium Sound</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- GLOBAL VARIABLES & RESET --- */
+        :root {
+            --primary: #FF0055;     /* Neon Pink */
+            --accent: #00E5FF;      /* Electric Cyan */
+            --yellow: #FFE600;      /* Electric Yellow */
+            --purple: #7000FF;      /* Deep Violet */
+            --dark-bg: #050505;
+            --text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+            background-color: var(--dark-bg);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+  
+        
+        /* --- CUSTOM SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--primary), var(--purple)); border-radius: 5px; }
+
+        /* --- HEADER (GLASSMORPHISM) --- */
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text);
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+        }
+
+        .logo span { 
+            color: var(--accent); 
+            text-shadow: 0 0 15px var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:hover { color: var(--accent); }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            /* Aurora Background Animation */
+            background: linear-gradient(-45deg, #bb15a8, #f1be14e1, #500e7b, #000000);
+            background-size: 400% 300%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        /* Hero Image Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("20250914_171222 (1).png") center/cover fixed no-repeat;
+            opacity: 0.4;
+            mix-blend-mode: overlay;
+            z-index: -1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--accent), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.4));
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .tagline {
+            color: var(--primary) !important;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 30px !important;
+            text-shadow: 0 0 15px var(--primary);
+        }
+
+        .btn {
+            padding: 15px 50px;
+            background: linear-gradient(45deg, var(--primary), var(--purple));
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: 0.4s;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 40px var(--primary);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 100px 20px;
+            text-align: center;
+            background: #170f1e;
+            position: relative;
+        }
+        
+        /* Floating Blobs for Services Background */
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 20%; left: 10%; width: 300px; height: 300px;
+            background: var(--purple);
+            filter: blur(150px);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+        .services::after {
+            content: '';
+            position: absolute;
+            bottom: 20%; right: 10%; width: 300px; height: 300px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            position: relative;
+            display: inline-block;
+            z-index: 2;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 10px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .shape-card {
+            width: 320px;
+            height: 380px;
+            background: rgba(27, 230, 213, 0.03);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            transition: 0.5s ease;
+            position: relative;
+            border: 1px solid rgba(137, 130, 223, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .shape-card:hover {
+            transform: translateY(-15px);
+            background: rgba(66, 181, 223, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(43, 176, 190, 0.2);
+        }
+
+        .shape-card i {
+            font-size: 4rem;
+            background: linear-gradient(to bottom, var(--primary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            transition: 0.5s;
+        }
+
+        .shape-card:hover i {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .shape-card h3 { margin-bottom: 15px; font-size: 1.5rem; color: white; }
+        .shape-card p { font-size: 0.95rem; color: #ccc; line-height: 1.6; }
+
+        /* --- GALLERY SECTION (Cyber Grid) --- */
+        .gallery-section {
+            padding: 80px 20px;
+            background: #020202;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grid Background Pattern */
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 85, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 25px var(--accent);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        /* --- LIGHTBOX --- */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .lightbox.active { display: flex; animation: fadeIn 0.3s; }
+        .lightbox img {
+            max-width: 90%; max-height: 90%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 50px var(--primary);
+            border-radius: 10px;
+        }
+        .lightbox-close {
+            position: absolute; top: 30px; right: 40px;
+            font-size: 3rem; color: white; cursor: pointer;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* --- QUALITY SECTION (UPDATED COLORFUL BACKGROUND) --- */
+        .quality {
+            padding: 80px 20px;
+            /* Deep Cosmic Gradient */
+            background: linear-gradient(135deg, #120429 0%, #000000 50%, #09001f 100%);
+            text-align: center;
+            position: relative;
+            border-top: 1px solid var(--purple);
+            overflow: hidden;
+        }
+        
+        /* Add a colorful subtle mesh overlay */
+        .quality::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.1) 10%, transparent 40%),
+                        radial-gradient(circle, rgba(255, 0, 85, 0.1) 10%, transparent 40%);
+            background-position: 20% 20%, 80% 80%;
+            animation: rotateMesh 20s linear infinite;
+        }
+        
+        @keyframes rotateMesh {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .q-item {
+            padding: 30px;
+            /* Glassy Card on Dark Background */
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+            border-radius: 15px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Colorful Gradient Bar on Left */
+        .q-item::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; height: 100%; width: 5px;
+            background: linear-gradient(to bottom, var(--accent), var(--primary));
+        }
+
+        .q-item:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(112, 0, 255, 0.2), rgba(0,0,0,0));
+            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .q-item h3 { color: white; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 1.4rem; }
+        .q-item h3 i { color: var(--accent); font-size: 1.5rem; text-shadow: 0 0 10px var(--accent); }
+
+        /* --- FOOTER (UPDATED COLORFUL BACKGROUND) --- */
+        footer {
+            padding: 60px 20px;
+            /* Sunset Glow Gradient */
+            background: linear-gradient(to top, #1a0b2e, #000000);
+            text-align: center;
+            border-top: 3px solid transparent;
+            /* Gradient Border Top */
+            border-image: linear-gradient(to right, var(--primary), var(--accent), var(--purple)) 1;
+            position: relative;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px; height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.8rem;
+            transition: 0.3s;
+            color: white;
+            margin: 0 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-btn.insta {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 0 30px var(--accent);
+            border-color: white;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-right h3 {
+            font-size: 1.8rem;
+            background: -webkit-linear-gradient(45deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 5px rgba(255,0,85,0.5));
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .logo { font-size: 1.2rem; }
+            nav { display: none; } 
+            .shape-card { width: 100%; }
+            .footer-container { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+   <header>
+        
+<div class="logo" style="display: flex; align-items: center;">
+    <img src="20250914_171222 (1).png" alt="Logo" id="top-logo" style="height: 50px; margin-right: 15px; cursor: pointer;">
+    <div>RAYS_AUDIO <span>INDIA</span></div>
+</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Rays Audio India</h1>
+        <p class="tagline">The Sound of Power</p>
+        <p>Experience the most premium, crystal clear, and heart-thumping audio systems for Weddings, Events, and Festivals.</p>
+        <br>
+        <a href="#services" class="btn">Explore Services</a>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">What We Do</h2>
+        
+        <div class="service-container">
+            <div class="shape-card">
+                <i class="fas fa-birthday-cake"></i>
+                <h3>Birthday Events</h3>
+                <p>High-quality compact sound systems to make your special day loud and memorable.</p>
+            </div>
+
+            <div class="shape-card">
+                <i class="fas fa-ring"></i>
+                <h3>Wedding Events</h3>
+                <p>Complete DJ and Sound setups for Haldi, Sangeet, and Reception.</p>
+            </div>
+
+            <div class="shape-card">
+                <i class="fas fa-drum"></i>
+                <h3>Rituals & Ceremony</h3>
+                <p>Traditional, crystal clear sound for Blessing ceremonies and cultural events.</p>
+            </div>
+
+            <div class="shape-card">
+                <i class="fas fa-university"></i>
+                <h3>College Fests</h3>
+                <p>Heavy bass and high-wattage systems for Gatherings and Annual Fests.</p>
+            </div>
+
+            <div class="shape-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Jayanti & Processions</h3>
+                <p>Long-throw sound systems designed for huge crowds. Power that commands respect.</p>
+            </div>
+
+            <div class="shape-card">
+                <i class="fas fa-om"></i>
+                <h3>Festivals</h3>
+                <p>Complete audio solutions for Ganesh Utsav and Navratri with perfect acoustic balance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Visual Gallery</h2>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="p1.png" alt="Sound System"></div>
+            <div class="gallery-item"><img src="p2.png" alt="DJ Truss"></div>
+            <div class="gallery-item"><img src="p3.png" alt="Line Array"></div>
+            <div class="gallery-item"><img src="p4.png" alt="Bass Bins"></div>
+            <div class="gallery-item"><img src="p5.png" alt="Night Event"></div>
+            <div class="gallery-item"><img src="p6.png" alt="Speakers"></div>
+            <div class="gallery-item"><img src="p7.png" alt="Setup"></div>
+            <div class="gallery-item"><img src="p8.png" alt="Event"></div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img src="" alt="Enlarged Image" class="lightbox-img" id="lightbox-img">
+    </div>
+
+    <section class="quality">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="quality-grid">
+            <div class="q-item">
+                <h3><i class="fas fa-volume-up"></i> Loudly Clean Voice</h3>
+                <p>Our speakers are tuned for clarity, not just noise. No distortion, just pure power.</p>
+            </div>
+            <div class="q-item">
+                <h3><i class="fas fa-user-tie"></i> Professional Staff</h3>
+                <p>Our team handles the setup and mixing professionally, ensuring no interruptions.</p>
+            </div>
+            <div class="q-item">
+                <h3><i class="fas fa-star"></i> Sound is Brand</h3>
+                <p>We believe the quality of sound defines the quality of your event.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-left">
+                <a href="https://www.instagram.com/Rays_audio_official" target="_blank" class="social-btn insta">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <span style="display:block; margin-top:15px; font-weight: bold; color: #fff;">Follow Our Updates</span>
+            </div>
+
+            <div class="footer-right">
+                <h3>Contact Us</h3>
+                <p style="margin-bottom: 10px; font-size: 1.1rem; color: white;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Malegaon Bk, Tal: Baramati
+                </p>
+                <p style="font-size: 1.2rem; color: #fff; font-weight:bold;">
+                    <i class="fas fa-phone-alt" style="color: var(--primary);"></i> +91 9175306198
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: #888;">
+            &copy; 2023 RAYS_AUDIO INDIA. 
+        </div>
+    </footer>
+
+    <script>
+        // Get elements
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('lightbox-close');
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        const topLogo = document.getElementById('top-logo'); // 1. Get the logo
+
+        // Helper function to open the lightbox
+        function openLightbox(imageSource) {
+            lightbox.classList.add('active'); // Show modal
+            lightboxImg.src = imageSource;    // Set image source
+        }
+
+        // Add click event to all gallery images
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                openLightbox(image.src);
+            });
+        });
+
+        // 2. Add click event to the Top Logo
+        if (topLogo) {
+            topLogo.addEventListener('click', () => {
+                openLightbox(topLogo.src);
+            });
+        }
+
+        // Close lightbox when clicking the X
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
